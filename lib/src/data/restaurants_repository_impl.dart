@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:wolt_test_task/src/data/dto/restaurants_response_dto.dart';
 import 'package:wolt_test_task/src/domain/index.dart';
 import 'package:wolt_test_task/src/index.dart';
 
@@ -16,26 +17,21 @@ class RestaurantsRepositoryImpl implements RestaurantsRepository {
       'lon': location.longitude,
     });
 
-    // TODO: implement fetchRestaurantsAtLocation
-    return [
-      Restaurant(
-        id: '1',
-        name: 'KFC',
-        description: 'Foo bar',
-        imageUrl: 'TBD',
-      ),
-      Restaurant(
-        id: '2',
-        name: 'Burger King',
-        description: 'Foo bar',
-        imageUrl: 'TBD',
-      ),
-      Restaurant(
-        id: '3',
-        name: 'McDonalds',
-        description: 'Foo bar',
-        imageUrl: 'TBD',
-      ),
-    ];
+    if (response.statusCode != 200) {
+      throw Exception('Response with 200 status code is expected');
+    }
+    final responseDto = RestaurantsResponseDto.fromJson(response.data);
+    final items = responseDto.sections.expand((section) => section.items);
+
+    return items.map(_mapToRestaurant).toList();
+  }
+
+  Restaurant _mapToRestaurant(ItemDto dto) {
+    return Restaurant(
+      id: dto.venue.id,
+      name: dto.venue.name,
+      description: dto.venue.description,
+      imageUrl: dto.image.url,
+    );
   }
 }
