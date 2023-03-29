@@ -19,8 +19,12 @@ class RestaurantView extends StatelessWidget {
       title: Text(restaurant.name),
       subtitle: Text(restaurant.description),
       trailing: InkWell(
-        child: isFavorite ? Text('F') : Text('NN'),
         onTap: toggleFavorite,
+        child: Icon(
+          isFavorite ? Icons.favorite : Icons.favorite_border,
+          size: 24.0,
+          semanticLabel: 'Text to announce in accessibility modes',
+        ),
       ),
     );
   }

@@ -24,8 +24,7 @@ class RestaurantsRepositoryImpl implements RestaurantsRepository {
     );
 
     final response = await _requestExecutor.execute(request);
-    final responseDto =
-        response.parse((data) => RestaurantsResponseDto.fromJson);
+    final responseDto = RestaurantsResponseDto.fromJson(response.data);
 
     return _mapper.mapFromResponse(responseDto);
   }
