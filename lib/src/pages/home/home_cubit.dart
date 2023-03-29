@@ -5,7 +5,7 @@ import 'package:wolt_test_task/src/index.dart';
 
 import 'home_state.dart';
 
-const _maxItemsToShow = 10;
+const _maxItemsToShow = 15;
 
 class HomeCubit extends Cubit<HomeState> {
   final RestaurantsRepository _restaurantsRepository;

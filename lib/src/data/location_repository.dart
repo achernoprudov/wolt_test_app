@@ -21,7 +21,7 @@ class LocationRepositoryImpl implements LocationRepository {
   final Duration _waitTime;
 
   const LocationRepositoryImpl({
-    Duration waitTime = const Duration(seconds: 10),
+    required Duration waitTime,
   }) : _waitTime = waitTime;
 
   @override

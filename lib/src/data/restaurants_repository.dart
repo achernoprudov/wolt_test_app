@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:wolt_test_task/src/index.dart';
 
 abstract class RestaurantsRepository {
@@ -7,10 +8,18 @@ abstract class RestaurantsRepository {
 }
 
 class RestaurantsRepositoryImpl implements RestaurantsRepository {
+  final Dio _dio;
 
-  const RestaurantsRepositoryImpl();
+  const RestaurantsRepositoryImpl({
+    required Dio dio,
+  }) : _dio = dio;
+
   @override
   Future<List<Restaurant>> fetchRestaurants(Location location) async {
+    final response = await _dio.get('/v1/pages/restaurants', queryParameters: {
+      'lat': location.latitude,
+      'lon': location.longitude,
+    });
     // TODO: implement fetchRestaurantsAtLocation
     return [
       Restaurant(
