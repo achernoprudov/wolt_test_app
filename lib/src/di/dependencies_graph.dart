@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:wolt_test_task/src/core/app_config.dart';
-import 'package:wolt_test_task/src/domain/index.dart';
 import 'package:wolt_test_task/src/index.dart';
 
 class DependenciesGraph {
@@ -25,10 +24,12 @@ class CoreLayer {
 }
 
 class DataLayer {
-  final Dio dio;
+  late final RequestExecutor requestExecutor;
 
-  DataLayer({required AppConfig config})
-      : dio = Dio(BaseOptions(baseUrl: config.baseurl));
+  DataLayer({required AppConfig config}) {
+    final dio = Dio(BaseOptions(baseUrl: config.baseurl));
+    requestExecutor = RequestExecutorImpl(dio);
+  }
 }
 
 class RepositoryLayer {
@@ -43,7 +44,7 @@ class RepositoryLayer {
           waitTime: config.locationFetchWaitTime,
         ),
         restaurantsRepository = RestaurantsRepositoryImpl(
-          dio: dataLayer.dio,
+          requestExecutor: dataLayer.requestExecutor,
         ),
         favoritesRepository = FavoritesRepositoryImpl();
 }
