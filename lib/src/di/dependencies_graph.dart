@@ -1,4 +1,4 @@
-import 'package:wolt_test_task/src/data/location_repository.dart';
+import 'package:wolt_test_task/src/data/repository/location_repository.dart';
 
 class DependenciesGraph {
   final DataLayer dataLayer;
