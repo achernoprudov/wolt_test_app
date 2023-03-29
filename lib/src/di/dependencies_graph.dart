@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:wolt_test_task/src/core/app_config.dart';
+import 'package:wolt_test_task/src/data/repository/restaurant_mapper.dart';
 import 'package:wolt_test_task/src/index.dart';
 
 class DependenciesGraph {
@@ -45,6 +46,7 @@ class RepositoryLayer {
         ),
         restaurantsRepository = RestaurantsRepositoryImpl(
           requestExecutor: dataLayer.requestExecutor,
+          mapper: RestaurantMapperImpl(),
         ),
         favoritesRepository = FavoritesRepositoryImpl();
 }

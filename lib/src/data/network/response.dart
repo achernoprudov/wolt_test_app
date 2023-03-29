@@ -4,5 +4,5 @@ class Response {
 
   Response({this.statusCode, this.data});
 
-  T parse<T>(T Function(dynamic) parseFunction) => parseFunction(data);
+  T parse<T>(Function(dynamic) parseFunction) => parseFunction(data);
 }
