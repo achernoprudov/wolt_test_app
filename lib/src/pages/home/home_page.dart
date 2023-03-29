@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wolt_test_task/src/pages/home/home_cubit.dart';
+import 'package:wolt_test_task/src/ui_kit/restaurant_view.dart';
 
 import '../../model/index.dart';
 import 'home_state.dart';
@@ -76,9 +77,10 @@ class _HomeListView extends StatelessWidget {
       itemCount: restaurants.length,
       itemBuilder: (context, index) {
         final item = restaurants[index];
-        return ListTile(
-          title: Text(item.name),
-          subtitle: Text(item.description),
+        return RestaurantView(
+          restaurant: item,
+          isFavorite: favorites.contains(item.id),
+          toggleFavorite: () => onToggle(item.id),
         );
       },
     );
