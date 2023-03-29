@@ -8,7 +8,9 @@ part 'home_state.freezed.dart';
 class HomeState with _$HomeState {
   const factory HomeState.initial() = _HomeStateInitial;
 
-  const factory HomeState.requestFailed() = _HomeStateFailed;
+  const factory HomeState.requestFailed({
+    required String message,
+  }) = _HomeStateFailed;
 
   const factory HomeState.loaded({
     required List<Restaurant> restaurants,

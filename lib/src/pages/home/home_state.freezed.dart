@@ -19,7 +19,7 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() requestFailed,
+    required TResult Function(String message) requestFailed,
     required TResult Function(
             List<Restaurant> restaurants, Set<String> favorites)
         loaded,
@@ -28,7 +28,7 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) =>
@@ -36,7 +36,7 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
     required TResult orElse(),
@@ -123,7 +123,7 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() requestFailed,
+    required TResult Function(String message) requestFailed,
     required TResult Function(
             List<Restaurant> restaurants, Set<String> favorites)
         loaded,
@@ -135,7 +135,7 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) {
@@ -146,7 +146,7 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
     required TResult orElse(),
@@ -201,6 +201,7 @@ abstract class _$$_HomeStateFailedCopyWith<$Res> {
   factory _$$_HomeStateFailedCopyWith(
           _$_HomeStateFailed value, $Res Function(_$_HomeStateFailed) then) =
       __$$_HomeStateFailedCopyWithImpl<$Res>;
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -213,61 +214,84 @@ class __$$_HomeStateFailedCopyWithImpl<$Res>
 
   @override
   _$_HomeStateFailed get _value => super._value as _$_HomeStateFailed;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_HomeStateFailed(
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_HomeStateFailed implements _HomeStateFailed {
-  const _$_HomeStateFailed();
+  const _$_HomeStateFailed({required this.message});
+
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'HomeState.requestFailed()';
+    return 'HomeState.requestFailed(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_HomeStateFailed);
+        (other.runtimeType == runtimeType &&
+            other is _$_HomeStateFailed &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_HomeStateFailedCopyWith<_$_HomeStateFailed> get copyWith =>
+      __$$_HomeStateFailedCopyWithImpl<_$_HomeStateFailed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() requestFailed,
+    required TResult Function(String message) requestFailed,
     required TResult Function(
             List<Restaurant> restaurants, Set<String> favorites)
         loaded,
   }) {
-    return requestFailed();
+    return requestFailed(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) {
-    return requestFailed?.call();
+    return requestFailed?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
     required TResult orElse(),
   }) {
     if (requestFailed != null) {
-      return requestFailed();
+      return requestFailed(message);
     }
     return orElse();
   }
@@ -308,7 +332,13 @@ class _$_HomeStateFailed implements _HomeStateFailed {
 }
 
 abstract class _HomeStateFailed implements HomeState {
-  const factory _HomeStateFailed() = _$_HomeStateFailed;
+  const factory _HomeStateFailed({required final String message}) =
+      _$_HomeStateFailed;
+
+  String get message => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_HomeStateFailedCopyWith<_$_HomeStateFailed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -402,7 +432,7 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() requestFailed,
+    required TResult Function(String message) requestFailed,
     required TResult Function(
             List<Restaurant> restaurants, Set<String> favorites)
         loaded,
@@ -414,7 +444,7 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) {
@@ -425,7 +455,7 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? requestFailed,
+    TResult Function(String message)? requestFailed,
     TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
     required TResult orElse(),

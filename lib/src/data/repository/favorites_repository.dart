@@ -2,9 +2,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:wolt_test_task/src/model/index.dart';
 
 abstract class FavoritesRepository {
-  Set<RestaurantId> fetchFavoritesRestaurantsIds();
+  Set<RestaurantId> fetchFavoriteIds();
 
-  void toggleFavoriteRestaurant(RestaurantId restaurantId);
+  void toggleFavorite(RestaurantId restaurantId);
 }
 
 class FavoritesRepositoryImpl implements FavoritesRepository {
@@ -12,12 +12,12 @@ class FavoritesRepositoryImpl implements FavoritesRepository {
   final Set<RestaurantId> favoriteRestaurantsIds = {};
 
   @override
-  Set<RestaurantId> fetchFavoritesRestaurantsIds() {
+  Set<RestaurantId> fetchFavoriteIds() {
     return Set.unmodifiable(favoriteRestaurantsIds);
   }
 
   @override
-  void toggleFavoriteRestaurant(RestaurantId restaurantId) {
+  void toggleFavorite(RestaurantId restaurantId) {
     if (favoriteRestaurantsIds.contains(restaurantId)) {
       favoriteRestaurantsIds.remove(restaurantId);
     } else {
