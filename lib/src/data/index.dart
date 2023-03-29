@@ -1,3 +1,3 @@
-export 'location_repository.dart';
-export 'restaurants_repository.dart';
-export 'favorites_repository.dart';
+export 'location_repository_impl.dart';
+export 'restaurants_repository_impl.dart';
+export 'favorites_repository_impl.dart';

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:wolt_test_task/src/core/app_config.dart';
+import 'package:wolt_test_task/src/domain/index.dart';
 import 'package:wolt_test_task/src/index.dart';
 
 class DependenciesGraph {

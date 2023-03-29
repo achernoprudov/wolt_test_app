@@ -1,8 +1,5 @@
+import 'package:wolt_test_task/src/domain/index.dart';
 import 'package:wolt_test_task/src/index.dart';
-
-abstract class LocationRepository {
-  Stream<Location> fetchLocation();
-}
 
 class LocationRepositoryImpl implements LocationRepository {
   static const List<Location> _locations = [

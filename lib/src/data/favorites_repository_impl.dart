@@ -1,11 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:wolt_test_task/src/domain/index.dart';
 import 'package:wolt_test_task/src/model/index.dart';
-
-abstract class FavoritesRepository {
-  Set<RestaurantId> fetchFavoriteIds();
-
-  void toggleFavorite(RestaurantId restaurantId);
-}
 
 class FavoritesRepositoryImpl implements FavoritesRepository {
   @visibleForTesting

@@ -1,11 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:wolt_test_task/src/domain/index.dart';
 import 'package:wolt_test_task/src/index.dart';
-
-abstract class RestaurantsRepository {
-  Future<List<Restaurant>> fetchRestaurants(
-    Location location,
-  );
-}
 
 class RestaurantsRepositoryImpl implements RestaurantsRepository {
   final Dio _dio;
@@ -20,6 +15,7 @@ class RestaurantsRepositoryImpl implements RestaurantsRepository {
       'lat': location.latitude,
       'lon': location.longitude,
     });
+
     // TODO: implement fetchRestaurantsAtLocation
     return [
       Restaurant(
