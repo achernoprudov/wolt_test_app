@@ -33,7 +33,9 @@ Map<String, dynamic> _$$_SectionDtoToJson(_$_SectionDto instance) =>
     };
 
 _$_ItemDto _$$_ItemDtoFromJson(Map<String, dynamic> json) => _$_ItemDto(
-      venue: VenueDto.fromJson(json['venue'] as Map<String, dynamic>),
+      venue: json['venue'] == null
+          ? null
+          : VenueDto.fromJson(json['venue'] as Map<String, dynamic>),
       image: ImageDto.fromJson(json['image'] as Map<String, dynamic>),
     );
 

@@ -296,7 +296,7 @@ ItemDto _$ItemDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ItemDto {
-  VenueDto get venue => throw _privateConstructorUsedError;
+  VenueDto? get venue => throw _privateConstructorUsedError;
   ImageDto get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -308,9 +308,9 @@ mixin _$ItemDto {
 abstract class $ItemDtoCopyWith<$Res> {
   factory $ItemDtoCopyWith(ItemDto value, $Res Function(ItemDto) then) =
       _$ItemDtoCopyWithImpl<$Res>;
-  $Res call({VenueDto venue, ImageDto image});
+  $Res call({VenueDto? venue, ImageDto image});
 
-  $VenueDtoCopyWith<$Res> get venue;
+  $VenueDtoCopyWith<$Res>? get venue;
   $ImageDtoCopyWith<$Res> get image;
 }
 
@@ -331,7 +331,7 @@ class _$ItemDtoCopyWithImpl<$Res> implements $ItemDtoCopyWith<$Res> {
       venue: venue == freezed
           ? _value.venue
           : venue // ignore: cast_nullable_to_non_nullable
-              as VenueDto,
+              as VenueDto?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -340,8 +340,12 @@ class _$ItemDtoCopyWithImpl<$Res> implements $ItemDtoCopyWith<$Res> {
   }
 
   @override
-  $VenueDtoCopyWith<$Res> get venue {
-    return $VenueDtoCopyWith<$Res>(_value.venue, (value) {
+  $VenueDtoCopyWith<$Res>? get venue {
+    if (_value.venue == null) {
+      return null;
+    }
+
+    return $VenueDtoCopyWith<$Res>(_value.venue!, (value) {
       return _then(_value.copyWith(venue: value));
     });
   }
@@ -360,10 +364,10 @@ abstract class _$$_ItemDtoCopyWith<$Res> implements $ItemDtoCopyWith<$Res> {
           _$_ItemDto value, $Res Function(_$_ItemDto) then) =
       __$$_ItemDtoCopyWithImpl<$Res>;
   @override
-  $Res call({VenueDto venue, ImageDto image});
+  $Res call({VenueDto? venue, ImageDto image});
 
   @override
-  $VenueDtoCopyWith<$Res> get venue;
+  $VenueDtoCopyWith<$Res>? get venue;
   @override
   $ImageDtoCopyWith<$Res> get image;
 }
@@ -386,7 +390,7 @@ class __$$_ItemDtoCopyWithImpl<$Res> extends _$ItemDtoCopyWithImpl<$Res>
       venue: venue == freezed
           ? _value.venue
           : venue // ignore: cast_nullable_to_non_nullable
-              as VenueDto,
+              as VenueDto?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -404,7 +408,7 @@ class _$_ItemDto implements _ItemDto {
       _$$_ItemDtoFromJson(json);
 
   @override
-  final VenueDto venue;
+  final VenueDto? venue;
   @override
   final ImageDto image;
 
@@ -442,13 +446,13 @@ class _$_ItemDto implements _ItemDto {
 
 abstract class _ItemDto implements ItemDto {
   const factory _ItemDto(
-      {required final VenueDto venue,
+      {required final VenueDto? venue,
       required final ImageDto image}) = _$_ItemDto;
 
   factory _ItemDto.fromJson(Map<String, dynamic> json) = _$_ItemDto.fromJson;
 
   @override
-  VenueDto get venue => throw _privateConstructorUsedError;
+  VenueDto? get venue => throw _privateConstructorUsedError;
   @override
   ImageDto get image => throw _privateConstructorUsedError;
   @override

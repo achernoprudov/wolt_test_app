@@ -29,7 +29,7 @@ class SectionDto with _$SectionDto {
 @freezed
 class ItemDto with _$ItemDto {
   const factory ItemDto({
-    required VenueDto venue,
+    required VenueDto? venue,
     required ImageDto image,
   }) = _ItemDto;
 

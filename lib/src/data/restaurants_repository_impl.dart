@@ -23,14 +23,19 @@ class RestaurantsRepositoryImpl implements RestaurantsRepository {
     final responseDto = RestaurantsResponseDto.fromJson(response.data);
     final items = responseDto.sections.expand((section) => section.items);
 
-    return items.map(_mapToRestaurant).toList();
+    return items.map(_mapToRestaurant).whereType<Restaurant>().toList();
   }
 
-  Restaurant _mapToRestaurant(ItemDto dto) {
+  Restaurant? _mapToRestaurant(ItemDto dto) {
+    final venue = dto.venue;
+    if (venue == null) {
+      return null;
+    }
+
     return Restaurant(
-      id: dto.venue.id,
-      name: dto.venue.name,
-      description: dto.venue.description,
+      id: venue.id,
+      name: venue.name,
+      description: venue.description,
       imageUrl: dto.image.url,
     );
   }
