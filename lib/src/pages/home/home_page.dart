@@ -18,10 +18,15 @@ class HomePage extends StatelessWidget {
         return state.map(
           initial: (_) => const _LoadingView(),
           requestFailed: (state) => _FailureView(message: state.message),
-          loaded: (state) => _HomeListView(
-            restaurants: state.restaurants,
-            favorites: state.favorites,
-          ),
+          loaded: (state) {
+            final cubit = context.read<HomeCubit>();
+
+            return _HomeListView(
+              restaurants: state.restaurants,
+              favorites: state.favorites,
+              onToggle: cubit.toggleFavorite,
+            );
+          },
         );
       }),
     );
@@ -56,10 +61,12 @@ class _FailureView extends StatelessWidget {
 class _HomeListView extends StatelessWidget {
   final List<Restaurant> restaurants;
   final Set<RestaurantId> favorites;
+  final Function(RestaurantId) onToggle;
 
   const _HomeListView({
     required this.restaurants,
     required this.favorites,
+    required this.onToggle,
     Key? key,
   }) : super(key: key);
 
