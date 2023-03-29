@@ -20,18 +20,25 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() requestFailed,
+    required TResult Function(
+            List<Restaurant> restaurants, Set<String> favorites)
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +46,21 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(_HomeStateInitial value) initial,
     required TResult Function(_HomeStateFailed value) requestFailed,
+    required TResult Function(_HomeStateLoaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_HomeStateInitial value)? initial,
     TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomeStateInitial value)? initial,
     TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +124,9 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() requestFailed,
+    required TResult Function(
+            List<Restaurant> restaurants, Set<String> favorites)
+        loaded,
   }) {
     return initial();
   }
@@ -123,6 +136,8 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
   }) {
     return initial?.call();
   }
@@ -132,6 +147,8 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -145,6 +162,7 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(_HomeStateInitial value) initial,
     required TResult Function(_HomeStateFailed value) requestFailed,
+    required TResult Function(_HomeStateLoaded value) loaded,
   }) {
     return initial(this);
   }
@@ -154,6 +172,7 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_HomeStateInitial value)? initial,
     TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -163,6 +182,7 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomeStateInitial value)? initial,
     TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -219,6 +239,9 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() requestFailed,
+    required TResult Function(
+            List<Restaurant> restaurants, Set<String> favorites)
+        loaded,
   }) {
     return requestFailed();
   }
@@ -228,6 +251,8 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
   }) {
     return requestFailed?.call();
   }
@@ -237,6 +262,8 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
     required TResult orElse(),
   }) {
     if (requestFailed != null) {
@@ -250,6 +277,7 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_HomeStateInitial value) initial,
     required TResult Function(_HomeStateFailed value) requestFailed,
+    required TResult Function(_HomeStateLoaded value) loaded,
   }) {
     return requestFailed(this);
   }
@@ -259,6 +287,7 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_HomeStateInitial value)? initial,
     TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
   }) {
     return requestFailed?.call(this);
   }
@@ -268,6 +297,7 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HomeStateInitial value)? initial,
     TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
     required TResult orElse(),
   }) {
     if (requestFailed != null) {
@@ -279,4 +309,176 @@ class _$_HomeStateFailed implements _HomeStateFailed {
 
 abstract class _HomeStateFailed implements HomeState {
   const factory _HomeStateFailed() = _$_HomeStateFailed;
+}
+
+/// @nodoc
+abstract class _$$_HomeStateLoadedCopyWith<$Res> {
+  factory _$$_HomeStateLoadedCopyWith(
+          _$_HomeStateLoaded value, $Res Function(_$_HomeStateLoaded) then) =
+      __$$_HomeStateLoadedCopyWithImpl<$Res>;
+  $Res call({List<Restaurant> restaurants, Set<String> favorites});
+}
+
+/// @nodoc
+class __$$_HomeStateLoadedCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res>
+    implements _$$_HomeStateLoadedCopyWith<$Res> {
+  __$$_HomeStateLoadedCopyWithImpl(
+      _$_HomeStateLoaded _value, $Res Function(_$_HomeStateLoaded) _then)
+      : super(_value, (v) => _then(v as _$_HomeStateLoaded));
+
+  @override
+  _$_HomeStateLoaded get _value => super._value as _$_HomeStateLoaded;
+
+  @override
+  $Res call({
+    Object? restaurants = freezed,
+    Object? favorites = freezed,
+  }) {
+    return _then(_$_HomeStateLoaded(
+      restaurants: restaurants == freezed
+          ? _value._restaurants
+          : restaurants // ignore: cast_nullable_to_non_nullable
+              as List<Restaurant>,
+      favorites: favorites == freezed
+          ? _value._favorites
+          : favorites // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HomeStateLoaded implements _HomeStateLoaded {
+  const _$_HomeStateLoaded(
+      {required final List<Restaurant> restaurants,
+      required final Set<String> favorites})
+      : _restaurants = restaurants,
+        _favorites = favorites;
+
+  final List<Restaurant> _restaurants;
+  @override
+  List<Restaurant> get restaurants {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_restaurants);
+  }
+
+  final Set<String> _favorites;
+  @override
+  Set<String> get favorites {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_favorites);
+  }
+
+  @override
+  String toString() {
+    return 'HomeState.loaded(restaurants: $restaurants, favorites: $favorites)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_HomeStateLoaded &&
+            const DeepCollectionEquality()
+                .equals(other._restaurants, _restaurants) &&
+            const DeepCollectionEquality()
+                .equals(other._favorites, _favorites));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_restaurants),
+      const DeepCollectionEquality().hash(_favorites));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_HomeStateLoadedCopyWith<_$_HomeStateLoaded> get copyWith =>
+      __$$_HomeStateLoadedCopyWithImpl<_$_HomeStateLoaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() requestFailed,
+    required TResult Function(
+            List<Restaurant> restaurants, Set<String> favorites)
+        loaded,
+  }) {
+    return loaded(restaurants, favorites);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
+  }) {
+    return loaded?.call(restaurants, favorites);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? requestFailed,
+    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+        loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(restaurants, favorites);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomeStateInitial value) initial,
+    required TResult Function(_HomeStateFailed value) requestFailed,
+    required TResult Function(_HomeStateLoaded value) loaded,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_HomeStateInitial value)? initial,
+    TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomeStateInitial value)? initial,
+    TResult Function(_HomeStateFailed value)? requestFailed,
+    TResult Function(_HomeStateLoaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeStateLoaded implements HomeState {
+  const factory _HomeStateLoaded(
+      {required final List<Restaurant> restaurants,
+      required final Set<String> favorites}) = _$_HomeStateLoaded;
+
+  List<Restaurant> get restaurants => throw _privateConstructorUsedError;
+  Set<String> get favorites => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_HomeStateLoadedCopyWith<_$_HomeStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

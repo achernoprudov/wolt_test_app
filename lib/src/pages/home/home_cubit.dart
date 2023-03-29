@@ -13,4 +13,19 @@ class HomeCubit extends Cubit<HomeState> {
   })  : _restaurantsRepository = restaurantsRepository,
         _locationRepository = locationRepository,
         super(const HomeState.initial());
+
+  void initialize() {
+    final restaurants = _locationRepository
+        .fetchLocation()
+        .asyncMap(_restaurantsRepository.fetchRestaurants)
+        .map((list) => list.take(10));
+
+
+  }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    return super.close();
+  }
 }

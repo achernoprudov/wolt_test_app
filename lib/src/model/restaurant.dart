@@ -1,5 +1,7 @@
+typedef RestaurantId = String;
+
 class Restaurant {
-  final String id;
+  final RestaurantId id;
   final String name;
   final String description;
   final String imageUrl;
