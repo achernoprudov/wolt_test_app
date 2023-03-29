@@ -1,14 +1,16 @@
 import 'package:wolt_test_task/src/index.dart';
 
 abstract class RestaurantsRepository {
-  Future<List<Restaurant>> fetchRestaurantsAtLocation(
+  Future<List<Restaurant>> fetchRestaurants(
     Location location,
   );
 }
 
 class RestaurantsRepositoryImpl implements RestaurantsRepository {
+
+  const RestaurantsRepositoryImpl();
   @override
-  Future<List<Restaurant>> fetchRestaurantsAtLocation(Location location) async {
+  Future<List<Restaurant>> fetchRestaurants(Location location) async {
     // TODO: implement fetchRestaurantsAtLocation
     return [
       Restaurant(

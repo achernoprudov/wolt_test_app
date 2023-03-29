@@ -1,17 +1,29 @@
-import 'package:wolt_test_task/src/data/repository/location_repository.dart';
+import 'package:wolt_test_task/src/index.dart';
 
 class DependenciesGraph {
-  final DataLayer dataLayer;
+  late final CoreLayer coreLayer;
+  late final DataLayer dataLayer;
+  late final RepositoryLayer repositoryLayer;
 
-  DependenciesGraph({
-    required this.dataLayer,
-  });
+  DependenciesGraph() {
+    coreLayer = CoreLayer();
+    dataLayer = DataLayer();
+    repositoryLayer = RepositoryLayer(
+      dataLayer: dataLayer,
+    );
+  }
 }
 
-class DataLayer {
-  final LocationRepository locationRepository;
+class CoreLayer {}
 
-  DataLayer({
-    required this.locationRepository,
-  });
+class DataLayer {}
+
+class RepositoryLayer {
+  final LocationRepository locationRepository;
+  final RestaurantsRepository restaurantsRepository;
+
+  RepositoryLayer({
+    required DataLayer dataLayer,
+  })  : locationRepository = const LocationRepositoryImpl(),
+        restaurantsRepository = const RestaurantsRepositoryImpl();
 }
