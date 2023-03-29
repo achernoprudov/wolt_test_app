@@ -3,12 +3,12 @@ import 'package:wolt_test_task/src/index.dart';
 class DependenciesGraph {
   late final CoreLayer coreLayer;
   late final DataLayer dataLayer;
-  late final RepositoryLayer repositoryLayer;
+  late final RepositoryLayer repositories;
 
   DependenciesGraph() {
     coreLayer = CoreLayer();
     dataLayer = DataLayer();
-    repositoryLayer = RepositoryLayer(
+    repositories = RepositoryLayer(
       dataLayer: dataLayer,
     );
   }
