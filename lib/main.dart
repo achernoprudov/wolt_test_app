@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wolt_test_task/src/home_page.dart';
+import 'package:wolt_test_task/src/pages/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
