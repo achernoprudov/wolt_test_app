@@ -21,9 +21,11 @@ class DataLayer {}
 class RepositoryLayer {
   final LocationRepository locationRepository;
   final RestaurantsRepository restaurantsRepository;
+  final FavoritesRepository favoritesRepository;
 
   RepositoryLayer({
     required DataLayer dataLayer,
   })  : locationRepository = const LocationRepositoryImpl(),
-        restaurantsRepository = const RestaurantsRepositoryImpl();
+        restaurantsRepository = const RestaurantsRepositoryImpl(),
+        favoritesRepository = FavoritesRepositoryImpl();
 }
