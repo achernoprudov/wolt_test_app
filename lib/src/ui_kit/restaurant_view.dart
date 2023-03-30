@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:wolt_test_task/src/index.dart';
 import 'package:wolt_test_task/src/ui_kit/thumbnail_image_view.dart';
 
+import 'like_button.dart';
+
 class RestaurantView extends StatelessWidget {
   final Restaurant restaurant;
   final bool isFavorite;
 
   final Function() toggleFavorite;
-
-  IconData get _icon => isFavorite ? Icons.favorite : Icons.favorite_border;
 
   RestaurantView({
     required this.restaurant,
@@ -23,13 +23,9 @@ class RestaurantView extends StatelessWidget {
       title: Text(restaurant.name),
       subtitle: Text(restaurant.description),
       leading: ThumbnailImageView(imageUrl: restaurant.imageUrl),
-      trailing: InkWell(
-        onTap: toggleFavorite,
-        child: Icon(
-          _icon,
-          size: 24.0,
-          semanticLabel: 'Text to announce in accessibility modes',
-        ),
+      trailing: LikeButton(
+        isFavorite: isFavorite,
+        toggleFavorite: toggleFavorite,
       ),
     );
   }
