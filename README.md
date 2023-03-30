@@ -2,6 +2,8 @@
 
 Test task for the Wolt
 
+<img alt="screenshot" src="assets/screenshot.png" width="150"/>
+
 ## Description 
 
 The app that displays a list of venues for the current location of the user. 
