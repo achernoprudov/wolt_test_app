@@ -2,15 +2,41 @@
 
 Test task for the Wolt
 
-## Getting Started
+## Description 
 
-This project is a starting point for a Flutter application.
+The app that displays a list of venues for the current location of the user. 
+The list contains 15 venues only. 
+Current location is taken from the input list and changes every 10 seconds.
+Each venue also has 'Favorite' action next to it.
 
-A few resources to get you started if this is your first Flutter project:
+## Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+In general, the app have the next layers:
+- Data layer - used for communication with low level components or remote resources
+- Domain - domain logic abstraction which declares interfaces of communication between Data and Presentation layers
+- Presentation - Widgets and Cubits for logic
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The presentation architecture uses Cubit. For presenting data, Page abstraction is declared.
+
+The dependency graph is declared manually without any third party framework. 
+It's simple and primitive solution that can be updated if needed.
+
+## Repository structure
+
+The app structure includes the next directories:
+- `core` - common classes
+- `di` - simple dependency injection framework
+- `model` - domain models for using in presentation and domain layer
+- `ui_kit` - widgets and common views
+- `domain` - domain logic and repositories protocols
+- `data/dto` - data transfer objects for remote communication
+- `data/network` - abstraction over Dio for REST API communication
+- `data/repository` - implementation of repositories
+- `pages` - specific pages for screens.
+- `pages/home` - home page presentation logic
+
+## Tests
+
+Tests are covering the main components of the system:
+- Repositories
+- Cubit
