@@ -6,7 +6,7 @@ class Restaurant {
   final String description;
   final String imageUrl;
 
-  Restaurant({
+  const Restaurant({
     required this.id,
     required this.name,
     required this.description,
