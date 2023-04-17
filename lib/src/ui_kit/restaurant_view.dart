@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:wolt_test_task/src/index.dart';
 import 'package:wolt_test_task/src/ui_kit/thumbnail_image_view.dart';
