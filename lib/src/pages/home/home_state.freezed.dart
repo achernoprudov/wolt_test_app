@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'home_state.dart';
 
@@ -27,9 +27,9 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? requestFailed,
-    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+    TResult? Function()? initial,
+    TResult? Function(String message)? requestFailed,
+    TResult? Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -51,9 +51,9 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateInitial value)? initial,
-    TResult Function(_HomeStateFailed value)? requestFailed,
-    TResult Function(_HomeStateLoaded value)? loaded,
+    TResult? Function(_HomeStateInitial value)? initial,
+    TResult? Function(_HomeStateFailed value)? requestFailed,
+    TResult? Function(_HomeStateLoaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,16 +69,18 @@ mixin _$HomeState {
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res>;
+      _$HomeStateCopyWithImpl<$Res, HomeState>;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
+class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
+    implements $HomeStateCopyWith<$Res> {
   _$HomeStateCopyWithImpl(this._value, this._then);
 
-  final HomeState _value;
   // ignore: unused_field
-  final $Res Function(HomeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -90,14 +92,11 @@ abstract class _$$_HomeStateInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_HomeStateInitialCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HomeStateInitial>
     implements _$$_HomeStateInitialCopyWith<$Res> {
   __$$_HomeStateInitialCopyWithImpl(
       _$_HomeStateInitial _value, $Res Function(_$_HomeStateInitial) _then)
-      : super(_value, (v) => _then(v as _$_HomeStateInitial));
-
-  @override
-  _$_HomeStateInitial get _value => super._value as _$_HomeStateInitial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -134,9 +133,9 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? requestFailed,
-    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+    TResult? Function()? initial,
+    TResult? Function(String message)? requestFailed,
+    TResult? Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) {
     return initial?.call();
@@ -170,9 +169,9 @@ class _$_HomeStateInitial implements _HomeStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateInitial value)? initial,
-    TResult Function(_HomeStateFailed value)? requestFailed,
-    TResult Function(_HomeStateLoaded value)? loaded,
+    TResult? Function(_HomeStateInitial value)? initial,
+    TResult? Function(_HomeStateFailed value)? requestFailed,
+    TResult? Function(_HomeStateLoaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -201,26 +200,25 @@ abstract class _$$_HomeStateFailedCopyWith<$Res> {
   factory _$$_HomeStateFailedCopyWith(
           _$_HomeStateFailed value, $Res Function(_$_HomeStateFailed) then) =
       __$$_HomeStateFailedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$_HomeStateFailedCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HomeStateFailed>
     implements _$$_HomeStateFailedCopyWith<$Res> {
   __$$_HomeStateFailedCopyWithImpl(
       _$_HomeStateFailed _value, $Res Function(_$_HomeStateFailed) _then)
-      : super(_value, (v) => _then(v as _$_HomeStateFailed));
+      : super(_value, _then);
 
-  @override
-  _$_HomeStateFailed get _value => super._value as _$_HomeStateFailed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$_HomeStateFailed(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -246,15 +244,15 @@ class _$_HomeStateFailed implements _HomeStateFailed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeStateFailed &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HomeStateFailedCopyWith<_$_HomeStateFailed> get copyWith =>
       __$$_HomeStateFailedCopyWithImpl<_$_HomeStateFailed>(this, _$identity);
 
@@ -273,9 +271,9 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? requestFailed,
-    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+    TResult? Function()? initial,
+    TResult? Function(String message)? requestFailed,
+    TResult? Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) {
     return requestFailed?.call(message);
@@ -309,9 +307,9 @@ class _$_HomeStateFailed implements _HomeStateFailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateInitial value)? initial,
-    TResult Function(_HomeStateFailed value)? requestFailed,
-    TResult Function(_HomeStateLoaded value)? loaded,
+    TResult? Function(_HomeStateInitial value)? initial,
+    TResult? Function(_HomeStateFailed value)? requestFailed,
+    TResult? Function(_HomeStateLoaded value)? loaded,
   }) {
     return requestFailed?.call(this);
   }
@@ -335,7 +333,7 @@ abstract class _HomeStateFailed implements HomeState {
   const factory _HomeStateFailed({required final String message}) =
       _$_HomeStateFailed;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$$_HomeStateFailedCopyWith<_$_HomeStateFailed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -346,31 +344,30 @@ abstract class _$$_HomeStateLoadedCopyWith<$Res> {
   factory _$$_HomeStateLoadedCopyWith(
           _$_HomeStateLoaded value, $Res Function(_$_HomeStateLoaded) then) =
       __$$_HomeStateLoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Restaurant> restaurants, Set<String> favorites});
 }
 
 /// @nodoc
 class __$$_HomeStateLoadedCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HomeStateLoaded>
     implements _$$_HomeStateLoadedCopyWith<$Res> {
   __$$_HomeStateLoadedCopyWithImpl(
       _$_HomeStateLoaded _value, $Res Function(_$_HomeStateLoaded) _then)
-      : super(_value, (v) => _then(v as _$_HomeStateLoaded));
+      : super(_value, _then);
 
-  @override
-  _$_HomeStateLoaded get _value => super._value as _$_HomeStateLoaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? restaurants = freezed,
-    Object? favorites = freezed,
+    Object? restaurants = null,
+    Object? favorites = null,
   }) {
     return _then(_$_HomeStateLoaded(
-      restaurants: restaurants == freezed
+      restaurants: null == restaurants
           ? _value._restaurants
           : restaurants // ignore: cast_nullable_to_non_nullable
               as List<Restaurant>,
-      favorites: favorites == freezed
+      favorites: null == favorites
           ? _value._favorites
           : favorites // ignore: cast_nullable_to_non_nullable
               as Set<String>,
@@ -390,6 +387,7 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   final List<Restaurant> _restaurants;
   @override
   List<Restaurant> get restaurants {
+    if (_restaurants is EqualUnmodifiableListView) return _restaurants;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_restaurants);
   }
@@ -397,6 +395,7 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   final Set<String> _favorites;
   @override
   Set<String> get favorites {
+    if (_favorites is EqualUnmodifiableSetView) return _favorites;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableSetView(_favorites);
   }
@@ -425,6 +424,7 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HomeStateLoadedCopyWith<_$_HomeStateLoaded> get copyWith =>
       __$$_HomeStateLoadedCopyWithImpl<_$_HomeStateLoaded>(this, _$identity);
 
@@ -443,9 +443,9 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? requestFailed,
-    TResult Function(List<Restaurant> restaurants, Set<String> favorites)?
+    TResult? Function()? initial,
+    TResult? Function(String message)? requestFailed,
+    TResult? Function(List<Restaurant> restaurants, Set<String> favorites)?
         loaded,
   }) {
     return loaded?.call(restaurants, favorites);
@@ -479,9 +479,9 @@ class _$_HomeStateLoaded implements _HomeStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_HomeStateInitial value)? initial,
-    TResult Function(_HomeStateFailed value)? requestFailed,
-    TResult Function(_HomeStateLoaded value)? loaded,
+    TResult? Function(_HomeStateInitial value)? initial,
+    TResult? Function(_HomeStateFailed value)? requestFailed,
+    TResult? Function(_HomeStateLoaded value)? loaded,
   }) {
     return loaded?.call(this);
   }
@@ -506,8 +506,8 @@ abstract class _HomeStateLoaded implements HomeState {
       {required final List<Restaurant> restaurants,
       required final Set<String> favorites}) = _$_HomeStateLoaded;
 
-  List<Restaurant> get restaurants => throw _privateConstructorUsedError;
-  Set<String> get favorites => throw _privateConstructorUsedError;
+  List<Restaurant> get restaurants;
+  Set<String> get favorites;
   @JsonKey(ignore: true)
   _$$_HomeStateLoadedCopyWith<_$_HomeStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;

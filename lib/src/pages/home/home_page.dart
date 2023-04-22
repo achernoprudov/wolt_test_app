@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wolt_test_task/src/di/dependencies_provider.dart';
 import 'package:wolt_test_task/src/pages/home/home_cubit.dart';
 import 'package:wolt_test_task/src/ui_kit/restaurant_view.dart';
 
@@ -15,22 +16,35 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Restaurants'),
       ),
-      body: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
-        return state.map(
-          initial: (_) => const _LoadingView(),
-          requestFailed: (state) => _FailureView(message: state.message),
-          loaded: (state) {
-            final cubit = context.read<HomeCubit>();
+      body: BlocBuilder<HomeCubit, HomeState>(
+        bloc: _buildCubit(context),
+        builder: (context, state) {
+          return state.map(
+            initial: (_) => const _LoadingView(),
+            requestFailed: (state) => _FailureView(message: state.message),
+            loaded: (state) {
+              final cubit = context.read<HomeCubit>();
 
-            return _HomeListView(
-              restaurants: state.restaurants,
-              favorites: state.favorites,
-              onToggle: cubit.toggleFavorite,
-            );
-          },
-        );
-      }),
+              return _HomeListView(
+                restaurants: state.restaurants,
+                favorites: state.favorites,
+                onToggle: cubit.toggleFavorite,
+              );
+            },
+          );
+        },
+      ),
     );
+  }
+
+  HomeCubit _buildCubit(BuildContext context) {
+    final di = DependenciesGraphProvider.of(context);
+
+    return HomeCubit(
+      restaurantsRepository: di.repositories.restaurantsRepository,
+      locationRepository: di.repositories.locationRepository,
+      favoritesRepository: di.repositories.favoritesRepository,
+    )..initialize();
   }
 }
 

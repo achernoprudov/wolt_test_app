@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wolt_test_task/src/core/app_config.dart';
-import 'package:wolt_test_task/src/index.dart';
-import 'package:wolt_test_task/src/pages/home/home_cubit.dart';
+import 'package:wolt_test_task/src/di/dependencies_provider.dart';
 import 'package:wolt_test_task/src/pages/home/home_page.dart';
 
 void main() {
@@ -14,21 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final di = DependenciesGraph(config: const AppConfig());
-
     return MaterialApp(
       title: 'Wolt Test Task app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<HomeCubit>(
-        create: (_) {
-          return HomeCubit(
-            restaurantsRepository: di.repositories.restaurantsRepository,
-            locationRepository: di.repositories.locationRepository,
-            favoritesRepository: di.repositories.favoritesRepository,
-          )..initialize();
-        },
+      home: DependenciesGraphProvider(
+        config: const AppConfig(),
         child: const HomePage(),
       ),
     );
