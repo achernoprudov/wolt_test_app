@@ -12,19 +12,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = _buildCubit(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Restaurants'),
       ),
       body: BlocBuilder<HomeCubit, HomeState>(
-        bloc: _buildCubit(context),
+        bloc: cubit,
         builder: (context, state) {
           return state.map(
             initial: (_) => const _LoadingView(),
             requestFailed: (state) => _FailureView(message: state.message),
             loaded: (state) {
-              final cubit = context.read<HomeCubit>();
-
               return _HomeListView(
                 restaurants: state.restaurants,
                 favorites: state.favorites,
